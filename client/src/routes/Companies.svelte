@@ -1,4 +1,9 @@
 <script>
+    /*
+Show me:
+- "Led backend development using Python/Django, building RESTful APIs that handle 100k daily requests"
+- "Architected and implemented a React-based dashboard, reducing load times by 60%"
+    */
     import Table from "../lib/components/table/Table.svelte";
 
     const data = [
@@ -7,9 +12,9 @@
             name: "Detected",
             uri: "https://www.detected.co/",
             location: "London",
-            keywords: "",
+            keywords: "kyb",
             technology: "web mobile",
-            notes: "nv",
+            notes: "CTO - https://www.linkedin.com/in/peter-youell-2863191a/",
         },
         {
             rank: 2,
@@ -35,8 +40,8 @@
             uri: "https://www.taina.tech/",
             location: "London, New York, Hong Kong",
             keywords: "tax",
-            technology: "",
-            notes: "",
+            technology: "react c#",
+            notes: "Roger Wood placed Michael Asaad?\https://www.linkedin.com/in/maria-scott-taina/ CEO",
         },
         {
             rank: 5,
@@ -54,7 +59,7 @@
             location: "London",
             keywords: "CDD, AI",
             technology: "",
-            notes: "",
+            notes: "CPO Reem el Seed https://www.linkedin.com/in/reemelseed/",
         },
         {
             rank: 7,

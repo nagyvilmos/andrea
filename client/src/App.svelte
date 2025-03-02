@@ -1,30 +1,32 @@
 <!-- App.svelte -->
 <script>
-  import { fade } from "svelte/transition";
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Route } from "svelte-routing";
+  import Layout from "./lib/Layout.svelte";
   import Home from "./routes/Home.svelte";
   import About from "./routes/About.svelte";
-  import Blog from "./routes/Blog.svelte";
-  import BlogPost from "./routes/BlogPost.svelte";
-  import Layout from "./lib/Layout.svelte";
+  import ArticleList from "./routes/ArticleList.svelte";
+  import Article from "./routes/Article.svelte";
   import Contact from "./routes/Contact.svelte";
-    import Companies from "./routes/Companies.svelte";
+  import Companies from "./routes/Companies.svelte";
+  import Programme from "./routes/Programme.svelte";
 
-  export let url = "";
+  const currentPath=window.location.pathname;
+
 </script>
 
 <Router
-  {url} viewtransition={() => ({ fn: fade, duration: 321 })}
+  url={currentPath} 
 >
-  <Layout url>
+  <Layout {currentPath} wide={currentPath==="/companies"}>
   <div>
-    <Route path="/blog/:id">
-      <BlogPost id />
+    <Route path="/article/:id" let:params>
+      <Article id="{params.id}" />
     </Route>
-    <Route path="/blog" component={Blog} />
+    <Route path="/article" component={ArticleList} />
     <Route path="/about" component={About} />
     <Route path ="/contact" component={Contact} />
     <Route path ="/companies" component={Companies} />
+    <Route path ="/programme" component={Programme} />
     <Route path="/" component={Home} />
   </div>
 </Layout>
