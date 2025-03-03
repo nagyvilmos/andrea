@@ -3,7 +3,7 @@ from server.dbClient import get_cursor
 import server.service.article as articleService
 
 article_controller = Blueprint('article', __name__, url_prefix='/api/article')
-released_articles = None
+released_articles = True
 @article_controller.route('/')
 def article_list():
     res = []

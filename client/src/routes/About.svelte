@@ -6,7 +6,7 @@
         wanted to see others healthy and happy, I myself never had a healthy
         lifestyle.
     </p>
-    <p class="content">
+    <p>
         As years passed, I started to think more about my health. I met so many
         people – younger and older – with diabetes, cardiovascular diseases,
         arthritis, back pains and many other ailments that made me think. I
@@ -29,7 +29,7 @@
         compromised, I decided to seek guidance. I still thought that I can deal
         with this by myself.
     </p>
-    <p class="content">
+    <p>
         I was searching for information and some kind of support. When I read
         the Health Coach Academy website, I knew that I found what I was looking
         for. I joined the Academy to learn more about healthy lifestyle and to
@@ -44,7 +44,7 @@
         and nurturing the right mindset, aspiration, self-confidence, guidance
         for constant development and the best practices to serve my clients.
     </p>
-    <p >
+    <p>
         I changed my diet and learnt to manage the symptoms of my IBS better. I
         became more aware of my food choices. It led to a more balanced blood
         sugar level that resulted in more energy and better mood. I never had to
@@ -151,11 +151,5 @@
 <style>
     .half-width {
         width: 70%;
-    }
-    .content {
-        margin: 0 auto;
-        background-image: url('/balaton.jpg') ;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
 </style>

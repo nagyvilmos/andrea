@@ -1,26 +1,137 @@
+<script>
+  import Disk from "../lib/components/Disk.svelte";
+  const items = [
+    {id:0, label:'Essentials'},
+    {id:1, label:'signature'},
+    {id:2, label:'VIP'}
+  ];
+  let activeTab = $state(0);
+
+  const handleClick = tabValue => () => (activeTab = tabValue);
+</script>
+
 <h1>Programmes and Packages</h1>
 
-<h2>Programmes and packages What length and how much?</h2>
-<p>
-    I would like to start with shorter programmes – Fast Track Package for
-    Beginners: weeks – package with:
-</p>
-Initial personal consultation – 1.5 hour, Five 1 to1 50-minute weekly coaching sessions,
-Whatsapp contact from Monday to Friday 8-5, Unlimited email contact – response in
-max 24 hour, Extra laser coaching – max 3 15-minute session for the first three weeks,
-Resources – client hands-out. Cost: £480. What will you offer to your volunteers?
-Discount?
-<p>
-    The ones with 4 sessions I will offer a full, 6-week programme and for the
-    ones who had 6 sessions with me, I would offer a 4-week programme. I will
-    offer a discount from £480 for six sessions £450 and for the four sessions
-    £305. I will also offer follow-up laser coaching – 25-30 minutes of length,
-    £50.
-</p>
-What other programmes? Signature Programme – 12 weeks for £960 for Beginners
-<p>
-    And I would offer a Maintenance Package for 4 weeks at the cost of £320 –
-    for the ones who would like to have a continued support following their
-    beginner’s package. Laser coaching package – 30 minute sessions for 4 weeks
-    at the price of £200.
-</p>
+<!-- Make this three tabs -->
+
+<ul class='tab'>
+{#each items as item}
+	<li class={activeTab === item.value ? 'active tabitem' : 'tabitem'}>
+		<span on:click={handleClick(item.id)}>{item.label}</span>
+	</li>
+{/each}
+</ul>
+
+
+<div class="box" hidden={activeTab!==0}>
+    <div class="container">
+        <div class="main">
+            <ul>
+                <li>Initial personal consultation - 90 minute</li>
+                <li>Five 1-to-1 50-minute weekly coaching sessions</li>
+                <li>Whatsup contact from Monday to Friday 8-5</li>
+                <li>Unlimited email contact – response in max 24 hour</li>
+                <li>Extra laser coaching – max 3 15-minute session for the first three weeks</li>
+                <li>Resources – client hands-out</li>
+            </ul>
+            <p>Cost: £360</p>
+        </div>
+        <Disk main={6} sub="sessions" />
+    </div>
+</div>
+
+<div class="box" hidden={activeTab!==1}>
+    <div class="container">
+        <div class="main">
+            <ul>
+                <li>Initial personal consultation - 90 minute</li>
+                <li>Five 1-to-1 50-minute weekly coaching sessions</li>
+                <li>Whatsup contact from Monday to Friday 8-5</li>
+                <li>Unlimited email contact – response in max 24 hour</li>
+                <li>Extra laser coaching – max 3 15-minute session for the first three weeks</li>
+                <li>Resources – client hands-out</li>
+            </ul>
+            <p>Cost: £600</p>
+        </div>
+        <Disk main={9} sub="sessions" />
+    </div>
+</div>
+
+<div class="box" hidden={activeTab!==2}>
+    <div class="container">
+        <div class="main">
+            <ul>
+                <li>Initial personal consultation - 90 minute</li>
+                <li>Five 1-to-1 50-minute weekly coaching sessions</li>
+                <li>Whatsup contact from Monday to Friday 8-5</li>
+                <li>Unlimited email contact – response in max 24 hour</li>
+                <li>Extra laser coaching – max 3 15-minute session for the first three weeks</li>
+                <li>Resources – client hands-out</li>
+            </ul>
+            <p>Cost: £800</p>
+        </div>
+        <Disk main={12} sub="sessions" />
+    </div>
+</div>
+
+<br/>
+
+<style>
+    .package {
+        margin-top: 8px;
+        padding: 12px;
+        border: 2px solid;
+        border-radius: 14px;
+    }
+	.container {
+		display: flex;
+		align-items: flex-start;
+	}
+	.main {
+		flex: 10;
+	}
+	.aside {
+		flex: 2;
+        align: center;
+	}
+
+
+	.box {
+		margin-bottom: 10px;
+		padding: 40px;
+		border: 1px solid #dee2e6;
+    border-radius: 0 0 .5rem .5rem;
+    border-top: 0;
+	}
+  .tab {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+    .tabitem {
+        margin-bottom: -1px;
+    }
+
+  span {
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
+  span:hover {
+    border-color: #e9ecef #e9ecef #dee2e6;
+  }
+
+  .tabitem.active > span {
+    color: #495057;
+    background-color:#efg;
+    border-color: #dee2e6 #dee2e6 #fff;
+  }
+
+</style>

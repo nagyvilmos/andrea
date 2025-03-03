@@ -5,6 +5,7 @@
 	const {id} = $props()
 </script>
 
+<div class="container">
 <div class="main">
 	{#await getArticle(id)}
 		<h1>Article</h1>
@@ -20,12 +21,16 @@
 	<h2>Other articles</h2>
 	<ArticleList />
 </div>
-
+</div>
 <style>
+	.container {
+		display: flex;
+		align-items: flex-start;
+	}
 	.main {
-		width: 70vw;
+		flex: 9;
 	}
 	.aside {
-		width: 30vw;
+		flex: 3;
 	}
 </style>

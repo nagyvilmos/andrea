@@ -1,4 +1,5 @@
 <script>
+    import { marked } from "marked";
     import Carousel from "../lib/components/Carousel.svelte";
 
     const items = [
@@ -6,13 +7,18 @@
         "Searching for more energy constantly?",
         "Are **you** overwhelmed?",
         "Dreaming of having a good night's sleep?",
-        "Not fealt well for some time?",
+        "Not felt well for some time?",
         "**You** want to change but cannot bring yourself to start it?"
     ];
 
 </script>
 
-<Carousel items={items} autoPlay={5000}/>
+<!-- <Carousel items={items} autoPlay={5000}/> -->
+<ul class='list'>
+{#each items as x}
+    <li class="item">{@html marked.parse(x)}</li>
+{/each}
+</ul>
 <p>
     As an experienced Health and Wellbeing coach, I would like to support <b
         >you</b
@@ -35,10 +41,22 @@
     <li>Motivation and accountability to keep you on track.</li>
 </ul>
 
+<img src="/home.svg" style={"width: 256px;"} />
 <style>
     p,
     li {
         font-size: 1.2em;
         font-stretch: 1.2em;
+    }
+
+    .list {
+    list-style: none;  
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    }
+    .item {
+        font-size:1.5em;
+        margin:12px 36px;
     }
 </style>
