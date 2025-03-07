@@ -3,6 +3,7 @@
     Set up the initial db content and amend as required
     Any method with the migrate decorator is run if not called before according to the 'migrated' collection
 """
+from config import settings
 import sqlite3 
 from datetime import datetime
 
@@ -48,7 +49,8 @@ def update_database(path):
 
 @migrate
 def create_articles():
-	db.execute('create table articles (link, title, content, released)')
+	db.execute('create table articles (link, title, content, released, permission)')
+	db.execute('create unique index idx_article_link on articles (link)')
 
 	articles = [
 	{
@@ -83,17 +85,19 @@ def create_articles():
 	"on a wellbeing journey to achieve their goals in the most effective way",
 	"possible.",
 	],
-	"released": True
+	"released": True,
+	"permission": ""
 	},
 	{
 	"link": "safety",
 	"title": "Safety notice",
 	"content": [
-	"While safety is one of many Enrichment Center Goals, the Aperture Science High Energy Pellet, seen to the left of the chamber, can and has caused permanent disabilities, such as vaporization. Please be careful.",
+	"While safety is one of many **Enrichment Center Goals**, the [Aperture Science High Energy Pellet](/programme), seen to the left of the chamber, can and has caused permanent disabilities, such as vaporization. Please be careful.",
 	"",
 	"Find out more at [google](http://google.com/search?q=more)",
 	],
-	"released": False
+	"released": True,
+	"permission": 'ADMIN'
 	},
 	{
 	"link": "cake",
@@ -221,7 +225,8 @@ def create_articles():
 	# all the content needs to be single string:
 	for x in articles:
 		x["content"] = "\n".join(x["content"])
-	db.executemany('insert into articles (link, title, content, released) values (:link, :title, :content, :released)', articles)
+		x["permission"] = x.get("permission", "")
+	db.executemany('insert into articles (link, title, content, released, permission) values (:link, :title, :content, :released, :permission)', articles)
 
 @migrate
 def create_testimonials():
@@ -252,7 +257,48 @@ def create_testimonials():
 
 	db.executemany('insert into testimonials (name, date, statement) values (:name, :date, :statement)', testimonials)
 
+@migrate
+def create_users():
+	db.execute('create table users (email, name, permission)')
+	db.execute('create unique index idx_user_email on users (email)')
+	users = [
+		{
+        	"email": "william.norman.walker@gmail.com",
+          	"name": 'William',
+        	'permission': "ADMIN"
+		},
+		{
+        	"email": "andrea.norman.walker@gmail.com",
+          	"name": 'Andrea',
+        	'permission': "ADMIN COACH"
+		},
+		{
+        	"email": "daniella.norman.walker@gmail.com",
+          	"name": 'Daniella',
+			"permission": ""
+		}
+	]
+	db.executemany('insert into users (email, name, permission) values (:email, :name, :permission)', users)
+
+@migrate
+def create_emails():
+	db.execute('create table email_templates (name, subject, content)')
+	db.execute('create unique index idx_email_template_name on email_templates (name)')
+
+	email_templates = [
+		{
+			"name": "SIGN_IN",
+			"subject": "Sign in Authorisation",
+			"content": "Hi {name}, your sign in is authorised, click [here]{link} to continue."
+		},
+		{
+			"name": "WELCOME",
+			"subject": "Welcome to Resilence4Health",
+			"content": "Hi {name} and welcome to Resilence4Health."
+		},
+	]
+	db.executemany('insert into email_templates (name, subject, content) values (:name, :subject, :content)', email_templates)
 
 # finally we run when main: 
 if __name__ == "__main__":
-    update_database('test.db')
+    update_database(settings['databaseName'])

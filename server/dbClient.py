@@ -1,4 +1,5 @@
-import sqlite3;
+import sqlite3
+from .migration import update_database
 
 class DataCursor:
     def __init__(self, connection: sqlite3.Connection):
@@ -80,6 +81,13 @@ class DatabaseClient:
     def get_cursor(self):
         return DataCursor(self._connection)
 
+
+db_name=None
+def innitialise_database(settings):
+    #update_database(settings)
+    global db_name
+    db_name = "development.db"  #settings['databaseName']
+
 def get_cursor():
-    db = DatabaseClient('test.db')
+    db = DatabaseClient(db_name)
     return db.get_cursor()

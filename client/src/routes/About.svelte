@@ -1,6 +1,7 @@
 <h1>My Story</h1>
 
-<div class="half-width" >
+<div class="container">
+<div class="main" >
     <p>
         When I was younger, I always wanted to be a doctor. Even though I always
         wanted to see others healthy and happy, I myself never had a healthy
@@ -71,85 +72,8 @@
         worry about ageing.
     </p>
 </div>
-<div hidden>
-    <h2>My mission, vision, values statements</h2>
-    <p>
-        I believe that making an effort is worth it. Focusing on being aware of
-        our health needs and addressing them always pays off. However, sometimes
-        we need that little nudge to start, or the knowledge that someone is
-        there to encourage and support us, making us accountable to continue. It
-        makes that difference between a thought and an action. Suddenly, the
-        health journey becomes joyful and pleasurable. That's my role as your
-        health coach.
-    </p>
-    <p>
-        I would love to be your companion on your health journey; encouraging
-        the development of the right mindset to build up resilience and live
-        your best life. I believe that making an effort is worth it. Focusing on
-        being aware of our health needs and addressing them always pays off. It
-        makes that difference between a thought and an action. To make it
-        happen; that's my role as your health coach.
-    </p>
-    <p>
-        My vision is to encourage and support as many people as possible to live
-        healthier and happier.
-    </p>
-    <p>
-        I want to make a difference; I want people of all ages to build
-        resilience that will help them to strive in the face of adversity. I
-        want to see children, young adults, middle aged people and elderly lead
-        a heathier lifestyle that makes the Earth a happier place. I'm
-        empathetic, compassionate, caring. I learnt to listen to people and use
-        intuition to unleash potentials. I want to be a professional. I want
-        health and wellbeing coaching to be my purpose.
-    </p>
-    <p>
-        I'm successful because I'm good at coaching. I have clients and I have a
-        waiting list. Clients like me because they feel that I care. I live up
-        to my clients' expectations and I get new clients simply by having a
-        good reputation. I run good programmes and offer packages that makes
-        everyone feel they address their needs.
-    </p>
-
-    <h2>Ideal Client</h2>
-    <p>
-        My ideal client is a man or woman aged between 45 and 67 who would like
-        to build up resilience to address the increasing health challenges.
-        Feeling tired from the morning, constantly looking for more energy
-        during the day, trying to overcome the worsening gut reactions and
-        dreaming of having a restful good night sleep. Someone, who would like
-        to have help to better manage their time, to have better food choices,
-        have the energy to do physical activity and manage their stress.
-    </p>
-
-    <h2>Programmes and packages What length and how much?</h2>
-    <p>
-        I would like to start with shorter programmes – Fast Track Package for
-        Beginners: weeks – package with:
-    </p>
-    Initial personal consultation – 1.5 hour, Five 1 to1 50-minute weekly coaching
-    sessions, Whatsapp contact from Monday to Friday 8-5, Unlimited email contact
-    – response in max 24 hour, Extra laser coaching – max 3 15-minute session for
-    the first three weeks, Resources – client hands-out. Cost: £480. What will you
-    offer to your volunteers? Discount?
-    <p>
-        The ones with 4 sessions I will offer a full, 6-week programme and for
-        the ones who had 6 sessions with me, I would offer a 4-week programme. I
-        will offer a discount from £480 for six sessions £450 and for the four
-        sessions £305. I will also offer follow-up laser coaching – 25-30
-        minutes of length, £50.
-    </p>
-    What other programmes? Signature Programme – 12 weeks for £960 for Beginners
-    <p>
-        And I would offer a Maintenance Package for 4 weeks at the cost of £320
-        – for the ones who would like to have a continued support following
-        their beginner’s package. Laser coaching package – 30 minute sessions
-        for 4 weeks at the price of £200.
-    </p>
+<div class="aside">
+    <img src="/andrea.jpg" style={"width: 100%;"} />
+</div>
 </div>
 
-<style>
-    .half-width {
-        width: 70%;
-    }
-</style>

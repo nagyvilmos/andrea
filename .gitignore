@@ -162,3 +162,5 @@ Scripts
 client/node_modules
 first_stab
 test.db
+*.db
+config.json

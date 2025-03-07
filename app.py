@@ -1,8 +1,11 @@
 # Copyright (c) Daniella Norman-Walker. All rights reserved.
 import os.path
+from config import settings
 from flask import Flask, send_from_directory, json
 from server.controller import add_controllers
+from server.dbClient import innitialise_database
 
+innitialise_database(settings)
 app = Flask(__name__)
 
 """
@@ -26,6 +29,7 @@ Path for all the static files (compiled JS/CSS, etc.)
 @app.route("/resource/<path:path>")
 def content(path):
     return send_from_directory('client/dist', path)
+
 
 add_controllers(app)
 
